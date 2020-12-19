@@ -45,7 +45,8 @@ jobs:
       run: prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
