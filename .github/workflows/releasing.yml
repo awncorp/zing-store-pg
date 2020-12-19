@@ -40,10 +40,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.30.0 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.30.0 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.30.0 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -63,6 +64,14 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      HARNESS_OPTIONS: j9
+      TESTDB_INITIAL: postgres
+      TESTDB_DATABASE: zing
+      TESTDB_HOSTNAME: localhost
+      TESTDB_HOSTPORT: 5432
+      TESTDB_USERNAME: postgres
+      TESTDB_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v1
@@ -83,10 +92,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.28.0 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.28.0 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.28.0 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -106,6 +116,14 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      HARNESS_OPTIONS: j9
+      TESTDB_INITIAL: postgres
+      TESTDB_DATABASE: zing
+      TESTDB_HOSTNAME: localhost
+      TESTDB_HOSTPORT: 5432
+      TESTDB_USERNAME: postgres
+      TESTDB_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v1
@@ -126,10 +144,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.26.0 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.26.0 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.26.0 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -149,6 +168,14 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      HARNESS_OPTIONS: j9
+      TESTDB_INITIAL: postgres
+      TESTDB_DATABASE: zing
+      TESTDB_HOSTNAME: localhost
+      TESTDB_HOSTPORT: 5432
+      TESTDB_USERNAME: postgres
+      TESTDB_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v1
@@ -169,10 +196,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.24.0 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.24.0 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.24.0 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -192,6 +220,14 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      HARNESS_OPTIONS: j9
+      TESTDB_INITIAL: postgres
+      TESTDB_DATABASE: zing
+      TESTDB_HOSTNAME: localhost
+      TESTDB_HOSTPORT: 5432
+      TESTDB_USERNAME: postgres
+      TESTDB_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v1
@@ -212,10 +248,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.22.0 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.22.0 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.22.0 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -235,6 +272,14 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      HARNESS_OPTIONS: j9
+      TESTDB_INITIAL: postgres
+      TESTDB_DATABASE: zing
+      TESTDB_HOSTNAME: localhost
+      TESTDB_HOSTPORT: 5432
+      TESTDB_USERNAME: postgres
+      TESTDB_PASSWORD: postgres
 
     steps:
     - uses: actions/checkout@v1
@@ -255,10 +300,11 @@ jobs:
     - name: Critiquing Project
       run: sudo perlbrew exec --with perl-5.18.2 perlcritic lib t
     - name: Testing Project
-      run: sudo perlbrew exec --with perl-5.18.2 prove -Ilib -r t
+      run: perlbrew exec --with perl-5.18.2 prove -Ilib -r t
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
@@ -304,7 +350,8 @@ jobs:
       run: V=$(cat VERSION) DZIL_RELEASING=1 dzil build
       env:
         HARNESS_OPTIONS: j9
-        TESTDB_DATABASE: postgres
+        TESTDB_INITIAL: postgres
+        TESTDB_DATABASE: zing
         TESTDB_HOSTNAME: localhost
         TESTDB_HOSTPORT: 5432
         TESTDB_USERNAME: postgres
